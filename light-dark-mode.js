@@ -14,19 +14,20 @@ function toggleTheme() {
   }
 }
 
-body.onload = function () {
+document.addEventListener("DOMContentLoaded", function () {
   const theme = localStorage.getItem("website_theme");
   const checkbox = document.querySelector(".dark-mode-slider #checkbox");
 
-  if (theme != null) {
+  if (theme !== null) {
     document.body.classList.remove("default", "dark_mode");
-    toggleBtn.classList.remove("bi-moon", "bi-brightness-high-fill");
+    checkbox.classList.remove("bi-moon", "bi-brightness-high-fill");
     document.body.classList.add(theme);
-    if (theme == "dark_mode") {
+    
+    if (theme === "dark_mode") {
       checkbox.checked = true;
-      toggleBtn.classList.add("bi-moon");
+      checkbox.classList.add("bi-moon");
     } else {
-      toggleBtn.classList.add("bi-brightness-high-fill");
+      checkbox.classList.add("bi-brightness-high-fill");
     }
   }
-};
+});
